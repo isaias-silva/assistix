@@ -1,0 +1,264 @@
+*{margin: 0;padding: 0}
+footer,header{
+    background: #333333;
+    width:100%;
+   height: auto;
+   color:  #3399ff;
+  
+    position: fixed;
+    z-index: 100000;
+    box-shadow: 3px 3px 10px black;
+}
+footer{
+    bottom:0;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top:0;
+}
+section{
+    display: flex;
+    background: #111111;
+        width: 100%;
+        min-height: 100vh;
+        position: absolute;
+        top:10px;
+        
+}
+aside{
+    position: fixed ;
+    height: 100vh;
+    width: 15%;
+  background: rgba(0, 0, 0, 0.7);;
+overflow: hidden;
+    border-right: solid 1px black;
+    box-shadow: 4px 10px 10px black;
+}
+aside ul{
+   
+    width: 100%;
+   margin: auto;
+   margin-left: 4px;
+   margin-top: 10px;
+ 
+    border-bottom: 1px solid #6633ff;
+    list-style: none;
+}
+aside ul li, a{
+   font-size: 18px;
+   width: 100%;
+    text-decoration: none;
+    color: #3399ff;
+ transition: 0.5s ease-in-out;
+   
+}
+li a:hover{
+    color:#fff;
+   }
+.menu{
+display:block;
+width: 30px;
+ margin-top: 20px;
+ margin-left: 20px;
+}
+.menu span{
+   display:block;
+   width: 30px;
+   height: 5px;
+   margin-top: 5px;
+   background: #006666;
+   border-radius: 30px;
+   position: relative;
+   transition: 0.25s ease-in-out;
+
+}
+.menu:hover{
+cursor: pointer;
+
+}
+#check{opacity: 0;}
+#check:checked~.menu span:nth-child(1){
+    transform: rotate(45deg);
+    top:10px;
+         background: #3399ff;
+}
+#check:checked~.menu span:nth-child(2){
+    filter:opacity(0);
+     background: #3399ff;
+}
+#check:checked~.menu span:nth-child(3){
+    transform: rotate(-45deg); 
+    top:-10px;
+     background: #3399ff;
+}
+.esconder{
+    display: none;
+}
+.capa{position: fixed;
+width: 100%;
+height: 70%;
+background-image: url("https://images5.alphacoders.com/764/thumb-1920-764519.jpg");
+background-size: cover;
+filter:opacity(25%);
+transition: 1s ease-in-out;
+}
+.capa-help{
+    position: fixed;
+    width: 100%;
+    background: #111111;
+    height: 50%;
+    bottom: 0;
+    box-shadow: 20px -20px 20px #111111;
+}
+.items{
+    margin-top: 50px;
+     margin-bottom: 10px;
+   margin-left: 200px;
+z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+.items a{
+    width: 20%; 
+ height: 250px;
+ text-align: center;
+ margin: 5px;
+ margin-bottom: 40px;
+}
+
+.film-content{
+    position: relative;
+    border:1px solid #3399ff;
+  margin: 15px;  
+   width: 100%;
+    height: 100%;
+    background:#111111;
+    border-radius: 20px;
+    overflow: hidden;
+background-size: cover;
+text-align: center;
+transition: 1s linear all;
+}
+
+.film-content img{
+   width: 100%;
+   transition: 0.5s linear all;
+}
+.film-content:hover img{
+  width: 105%;
+}
+.film-content:hover:before{
+content: " ";
+display: block;
+position: absolute;
+width:100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+
+text-align: center;
+z-index: 10000;
+}
+
+.items a p{
+
+   margin-left: 40px;
+   margin-top:-10px;
+ text-align: center;
+
+}
+
+.busca input{
+    text-align: center;
+    background:  #0066ff;
+    height: 25px;
+    font-size: 16px;
+     transition: 0.5s ease-in-out;
+    color:white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.busca button{
+    display:none;
+}
+.busca input::-webkit-input-placeholder {
+   color: white;
+}
+
+.busca input:-moz-placeholder { /* Firefox 18- */
+   color: white;
+}
+
+.busca input::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+}
+
+.busca input:-ms-input-placeholder {  
+   color: white; 
+}
+.film-page{
+    top:0;
+ 
+ 
+    
+}
+.target-film{
+    width: 20%;
+    height: 100vh;
+    position: relative;
+    
+}
+.target-film img{
+    width: 250%;
+height: 100%;
+
+}
+.info-film{
+    
+   box-shadow: -20px 0px 10px black;
+    background: black;
+    width: 70%;
+    height: 100vh;
+z-index: 10000;
+color:#3399ff;
+}
+.info-film h1{
+    font-size: 32px;
+}
+
+.img-sdw{
+    position: absolute;
+    top:0;
+    width: 250%;
+    height: 100%;
+    background: black;
+   filter:opacity(60%);
+}
+
+.indicative{
+    margin-top: 30px;
+}
+.idade{
+    width: 50px;
+    height: 50px;
+    border:2px solid #fff;
+    box-sizing: border-box;
+    
+    background: #666666;
+    color:#fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow:2px 1px 1px #000;
+    border-radius: 5px;
+}
+.coments{
+    box-shadow: 1px -20px 10px #000;
+    background: black;
+    position: relalive;
+   top:100%;
+}
