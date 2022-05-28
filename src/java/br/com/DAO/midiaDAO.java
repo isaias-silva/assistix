@@ -16,6 +16,7 @@ public class midiaDAO {
          String sql = "insert into midia (nome,director,ano,enredo,tipo,tema) values (?,?,?,?,?,?)";
         con = new ConexaoDAO().ConexaoDAO();
         try {
+            
             pstm = con.prepareStatement(sql);
             pstm.setString(1,midia.getName());
             pstm.setString(2,midia.getDirector());
@@ -39,6 +40,7 @@ public class midiaDAO {
            System.out.println("indo");
             while(rs.next()){
                 Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));    
                 objMidia.setName(rs.getString("nome"));
                 objMidia.setDirector(rs.getString("diretor"));
                 objMidia.setPlot(rs.getString("enredo"));

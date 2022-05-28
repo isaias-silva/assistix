@@ -1,6 +1,8 @@
 
 package br.com.model;
 
+import java.util.ArrayList;
+
 
 public class Midia {
     private String name;
@@ -12,6 +14,9 @@ public class Midia {
     private int faixa_etaria;
     private String url_img;
     private  String wallpaper;
+    private int id;
+    private float nota;
+    private ArrayList<Float> notas;
     /**
      * @return the name
      */
@@ -137,4 +142,19 @@ public class Midia {
     public void setWallpaper(String wallpaper) {
         this.wallpaper = wallpaper;
     }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

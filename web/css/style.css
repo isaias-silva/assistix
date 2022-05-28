@@ -257,8 +257,92 @@ color:#3399ff;
     border-radius: 5px;
 }
 .coments{
-    box-shadow: 1px -20px 10px #000;
-    background: black;
+    flex-direction: column;
+    box-shadow: 1px -20px 10px #111;
+    background: #111;
     position: relalive;
    top:100%;
+   z-index: 100000;
+   
+}
+.coments h2{
+    color:aqua;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.coments form{
+    width: 90%;
+   margin: auto;
+   margin-top:0;
+   margin-bottom: 40px;
+    
+}
+.coments form label{
+    color:aqua;
+    
+}
+.coments form input{
+    margin-bottom: 20px;
+  border:1px none ;
+background: #111;
+color:#fff;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom:2px solid aqua;
+}
+.coments form button{
+    margin-top:10px;
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+}
+div.nota{
+    width: 30px;
+    height: 30px;
+    background: red;
+    color:white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.input_coment{
+    resize: none;
+    width: 100%;
+    height: 50px;
+display: block;
+border:1px none ;
+background: #111;
+color:#fff;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom:2px solid aqua;
+}
+.input_coment:focus, form input{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+border-bottom:2px solid aqua;
+}
+.comented{
+    background: #333333;
+    width: 80%;
+    margin: auto;
+    min-height: 100px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.comented p{
+    font-size: 18px;
+    margin-top: 20px;
+}
+.comented span{
+    font-size: 12px;
 }

@@ -79,7 +79,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                midiaDAO midia=new midiaDAO();
                ArrayList<Midia> list = midia.verMidia();
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./midias/mid.jsp?name="+list.get(num).getName()+"''/>"
+                  out.print("<a href='./midias/mid.jsp?name="+list.get(num).getName()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"
