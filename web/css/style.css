@@ -266,6 +266,7 @@ color:#3399ff;
 .relacionados{
    height: 400px;
     color:aqua;
+   
   
 }
 .relacionados .items{
@@ -274,7 +275,35 @@ color:#3399ff;
 }
 .relacionados .film-content{
     margin: 0;
+    min-width: 200px;
 }
+.carrosel{
+    display: flex;
+ 
+}
+.carrosel .control{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.control .items{
+    position: absolute;
+    left: -10px;
+    transition: 0.5s ease-in-out;
+}
+.carrosel button{
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    background: black;
+    color:aqua;
+    border-color: aqua;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
 .coments h2{
     color:aqua;
     margin-bottom: 10px;
@@ -285,6 +314,7 @@ color:#3399ff;
    margin: auto;
    margin-top:0;
    margin-bottom: 40px;
+   
     
 }
 .coments form label{
