@@ -20,7 +20,9 @@
        </title>
     </head>
     <body>
+      
         <section class="film-page">
+    
         <%
      
         String name = request.getParameter("name");
@@ -40,13 +42,12 @@
      //-----------------------------------------------------------
        String idadehtml=etary.criar_idade(midiares.getFaixa_etaria());
       out.print("<div class='target-film'>"
+    
       + "<img src='"+midiares.getWallpaper()+"' /> "
       + "<div class='img-sdw'></div>"
-      
+      + "  <a href='/' class='return'> <img src='https://i.pinimg.com/originals/e8/e9/27/e8e927958105ca2b267bd47a99a19696.png'> </a>"  
       + "</div>");
-      out.print("<div class='target-film'>"
-      + ""
-      + "</div>");
+    
       out.print("<div class='info-film'>"
       + "<h1>"+midiares.getName()+"</h1>"
       + "<p><b>"+midiares.getYear()+"</b></p>"
@@ -74,6 +75,28 @@
     }
 %>
    </section>
+   <div class="relacionados">
+       <h2>filmes e séries relacionados:</h2>
+       <div class="items">
+       <a>
+       <div class="film-content"></div>
+   </a> 
+             <a>
+       <div class="film-content"></div>
+   </a> 
+             <a>
+       <div class="film-content"></div>
+   </a> 
+             <a>
+       <div class="film-content"></div>
+   </a> 
+             <a>
+       <div class="film-content"></div>
+   </a> 
+       </div>
+      
+       
+   </div>
    <section class="coments">
     
        <h2>Comentários</h2>
@@ -99,10 +122,6 @@
                   comentar
               </button>
        </form>
-           <div class="comented">
-               <h3>joãozinho matuto</h3><span>01/01/2001</span>
-               <p>exemplo de comentario exemplo de comentario exemplo de comentario exemplo de comentario</p>
-           </div>
               <%
               int id=Integer.parseInt(request.getParameter("mask_id"));
               try{
