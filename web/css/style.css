@@ -263,6 +263,13 @@ color:#3399ff;
    z-index: 100000;
    
 }
+.coments .comentary{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 50px;
+
+}
+
 .relacionados{
    height: 400px;
     color:aqua;
@@ -294,12 +301,13 @@ color:#3399ff;
     transition: 0.5s ease-in-out;
 }
 .carrosel button{
+    border:1px solid aqua;
     width: 50px;
     height: 50px;
     font-size: 25px;
     background: black;
     color:aqua;
-    border-color: aqua;
+  
     border-radius: 5px;
     margin-top: 50px;
 }
@@ -401,4 +409,12 @@ border-bottom:2px solid aqua;
 }
 .return img:hover{
     filter:invert(100%);
+}
+.note{
+    background: green;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
 }

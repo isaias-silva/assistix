@@ -95,4 +95,37 @@ public class midiaDAO {
             return midia_item;
 
   }
+ public ArrayList<Midia> midias_relacionadas(String tema){
+    String sql="select * from midia join tema on tema= '"+tema+"'";
+      con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+           
+     
+            rs = pstm.executeQuery(sql);
+           System.out.println("indo");
+            while(rs.next()){
+                Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));    
+                objMidia.setName(rs.getString("nome"));
+                objMidia.setDirector(rs.getString("diretor"));
+                objMidia.setPlot(rs.getString("enredo"));
+                objMidia.setTema(rs.getString("tema"));
+                objMidia.setYear(rs.getInt("ano"));
+                objMidia.setType(rs.getString("tipo"));
+               objMidia.setUrl_img(rs.getString("capa"));
+               objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
+                lista.add(objMidia);
+            
+            }
+            pstm.close();
+             } catch (SQLException e) {
+                System.out.println(e);
+             } 
+             System.out.println(lista.size());
+          return lista;
+               
+    
+    
+ }
 }

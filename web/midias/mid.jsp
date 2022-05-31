@@ -7,6 +7,7 @@
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.util.Etary" %>
 <%@page import="br.com.util.Media" %>
+<%@page import="br.com.util.Notarender" %>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -24,20 +25,20 @@
         <section class="film-page">
 
             <%
-     
+             String tm="";
             String name = request.getParameter("name");
+             int id=Integer.parseInt(request.getParameter("mask_id"));
             midiaDAO midia=new midiaDAO();
+            comentDAO control=new comentDAO();
+            Notarender n_render=new Notarender();
             try{
        
            Midia midiares=midia.irparaMidia(name);
            Etary etary= new Etary();
            Media media= new Media();
-         //modelo de media--------------------------------------
-           ArrayList<Integer> notas=new ArrayList();
-           notas.add(3);
-           notas.add(3);
-           notas.add(10);
-           notas.add(9);
+         //--------------------------------------
+           ArrayList<Integer> notas=control.vernotas(id);
+           
            int medianotas=media.media(notas);
          //-----------------------------------------------------------
            String idadehtml=etary.criar_idade(midiares.getFaixa_etaria());
@@ -61,13 +62,13 @@
           + "</div>"
           + "<div style='margin-top:20px'>"
           +"<h2>avaliação média</h2>"
-          +"<div class='nota'>"+medianotas+"</div>"
+          +n_render.notatotal_render(medianotas)
           + "</div>"
       
           + "</div>"
           );
         
-       
+       tm=midiares.getTema();
                 }catch(Exception e){      
         out.print(e);   
        
@@ -82,10 +83,23 @@
                 <button value="return" onclick="move(this.value)">&lt;</button>
                 <div class="control">
                     <div class="items" left="0">
-                        <a href="">
-                            <div class="film-content"></div>
-                        </a> 
-                     
+                        <%
+                                          try{
+              
+               ArrayList<Midia> list = midia.midias_relacionadas(tm);
+              for(int num=0;num<list.size();num++){
+                  out.print("<a href='../midias/mid.jsp?name="+list.get(num).getName()+"&mask_id="+list.get(num).getId()+"''/>"
+                  + "<div class='film-content'>"
+                  + "<img src='"+list.get(num).getUrl_img()+"'>"
+                  + "</div>"
+                  + ""+"</a>");
+                  }
+    }catch(Exception e){
+    out.print("erro" + e);
+    } 
+                        
+                        %>
+
                     </div>
                 </div>
                 <button value="go" onclick="move(this.value)" >&gt;</button>
@@ -102,31 +116,33 @@
                 <label for="nm">
                     <p>seu nome</p>
                 </label>
-                <input id="nm" name="author" type="text" placeholder="seu nome">
+                <input id="nm" name="author" type="text" placeholder="seu nome" required>
                 <label for="nota">
                     <p>sua nota</p>
                 </label> 
-                <span style="color:red;font-weight: bold;">0</span><input id="nota" name="nota_film" type="range" min="0" max="10"><span style="color:green; font-weight: bold;">10</span>
+                <span style="color:red;font-weight: bold;">0</span><input id="nota" name="nota_film" type="range" min="0" max="10" required=""><span style="color:green; font-weight: bold;">10</span>
                 <label for="comn">
                     <p>seu comentário</p>
                 </label>
-                <textarea name="coment" id="comn" class="input_coment" placeholder="comentário">
+                <textarea name="coment" id="comn" class="input_coment" placeholder="comentário" required>
                
                 </textarea>
                 <button value="submit">
                     comentar
                 </button>
             </form>
+                <div class="comentary">
             <%
-            int id=Integer.parseInt(request.getParameter("mask_id"));
+           
             try{
-            comentDAO control=new comentDAO();
+          
             ArrayList<Coment> lista=control.vercoment(id);
              
               for(int num=0; num<lista.size(); num++){
                 out.print("<div class='comented'>"
                 + "<h3>"+lista.get(num).getComentador()+"</h3>"
                 + "<span>"+lista.get(num).getDate()+"</span>"
+                + "<div class='note'>"+n_render.notaindividual_render(lista.get(num).getNota())+"</div>"
                 + "<p>"+lista.get(num).getComentario()+"</p>"
                   
                 + "</div>");
@@ -137,6 +153,7 @@
                 out.print(err);
                 }
             %>
+                </div>
         </section>
         <footer>
             <p>2022 &copy;</p>
