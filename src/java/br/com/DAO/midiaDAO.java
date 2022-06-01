@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 public class midiaDAO {
@@ -96,7 +98,7 @@ public class midiaDAO {
 
   }
  public ArrayList<Midia> midias_relacionadas(String tema){
-    String sql="select * from midia join tema on tema= '"+tema+"'";
+    String sql="select * from midia join tema where tema='"+tema+"' and id_tema=tema.id";
       con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
@@ -124,8 +126,106 @@ public class midiaDAO {
              } 
              System.out.println(lista.size());
           return lista;
-               
-    
     
  }
+ public ArrayList<Midia> midias_do_ano(){
+     Calendar cal = GregorianCalendar.getInstance();
+
+     int ano=cal.get(Calendar.YEAR);
+    String sql="select * from midia where ano="+ano;
+      con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+           
+     
+            rs = pstm.executeQuery(sql);
+           System.out.println("indo");
+            while(rs.next()){
+                Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));    
+                objMidia.setName(rs.getString("nome"));
+                objMidia.setDirector(rs.getString("diretor"));
+                objMidia.setPlot(rs.getString("enredo"));
+                objMidia.setYear(rs.getInt("ano"));
+                objMidia.setType(rs.getString("tipo"));
+               objMidia.setUrl_img(rs.getString("capa"));
+               objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
+                lista.add(objMidia);
+            
+            }
+            pstm.close();
+             } catch (SQLException e) {
+                System.out.println(e);
+             } 
+             System.out.println(lista.size());
+          return lista;
+    
+ }
+ public ArrayList<Midia> midias_tipo(String tipo){
+ 
+    String sql="select * from midia where tipo='"+tipo+"'";
+      con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+           
+     
+            rs = pstm.executeQuery(sql);
+           System.out.println("indo");
+            while(rs.next()){
+                Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));    
+                objMidia.setName(rs.getString("nome"));
+                objMidia.setDirector(rs.getString("diretor"));
+                objMidia.setPlot(rs.getString("enredo"));
+                objMidia.setYear(rs.getInt("ano"));
+                objMidia.setType(rs.getString("tipo"));
+               objMidia.setUrl_img(rs.getString("capa"));
+               objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
+                lista.add(objMidia);
+            
+            }
+            pstm.close();
+             } catch (SQLException e) {
+                System.out.println(e);
+             } 
+             System.out.println(lista.size());
+          return lista;
+    
+ }
+ public ArrayList<Midia> midias_procurar(String palavra){
+ 
+    String sql="select * from midia";
+      con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+           
+     
+            rs = pstm.executeQuery(sql);
+           System.out.println("indo");
+            while(rs.next()){
+                
+                Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));    
+                objMidia.setName(rs.getString("nome"));
+                objMidia.setDirector(rs.getString("diretor"));
+                objMidia.setPlot(rs.getString("enredo"));
+                objMidia.setYear(rs.getInt("ano"));
+                objMidia.setType(rs.getString("tipo"));
+               objMidia.setUrl_img(rs.getString("capa"));
+               objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
+              if(objMidia.getName().contains(palavra)){
+              lista.add(objMidia);
+              }
+               
+               
+            
+            }
+            pstm.close();
+             } catch (SQLException e) {
+                System.out.println(e);
+             } 
+          
+    return lista;
+ }
+ 
 }

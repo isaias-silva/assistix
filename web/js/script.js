@@ -23,8 +23,8 @@ function move(value){
       left-=200;
     cont+=1;
     }
-  if(left<-itensnumb*140){
-      left=-itensnumb*140;
+  if(left<-itensnumb*100){
+      left=-itensnumb*100;
   }
     return  itemstyle.style=`left: ${left}px`;
  

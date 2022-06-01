@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.DAO.midiaDAO" %>
 <%@page import="br.com.DAO.comentDAO" %>
@@ -46,7 +44,7 @@
     
           + "<img src='"+midiares.getWallpaper()+"' /> "
           + "<div class='img-sdw'></div>"
-          + "  <a href='/' class='return'> <img src='https://i.pinimg.com/originals/e8/e9/27/e8e927958105ca2b267bd47a99a19696.png'> </a>"  
+          + "  <a href='../' class='return'> <img src='https://i.pinimg.com/originals/e8/e9/27/e8e927958105ca2b267bd47a99a19696.png'> </a>"  
           + "</div>");
     
           out.print("<div class='info-film'>"
@@ -124,7 +122,7 @@
                 <label for="comn">
                     <p>seu comentário</p>
                 </label>
-                <textarea name="coment" id="comn" class="input_coment" placeholder="comentário" required>
+                <textarea name="coment" id="comn" class="input_coment" placeholder="comentário" maxlength="350" required>
                
                 </textarea>
                 <button value="submit">
