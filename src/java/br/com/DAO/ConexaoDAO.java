@@ -9,21 +9,23 @@ public class ConexaoDAO {
 
     private Connection conJDBC;
 
-    private final String URLDB = "jdbc:mysql://localhost:3306/assisflix";
-    private final String usuario = "isaias";
-    private final String senha = "s100";
+    public Connection ConexaoDAO() throws ClassNotFoundException {
 
-    public Connection ConexaoDAO() {
-
+         String server = "anhanguera.cmi4gdq4rsw6.sa-east-1.rds.amazonaws.com";
+        String banco = "assistix";
+        String user = "admin";
+        String pass = "adminadmin";
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conJDBC = DriverManager.getConnection(URLDB, usuario, senha);
-
-            System.out.println("banco conectado");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Erro na conexão");
+            String url = "jdbc:mysql://"+server+":3306/"+banco+"?user="+user+"&password="+pass+"";            
+            conJDBC = DriverManager.getConnection(url);            
+            
+        } catch (SQLException e) {
+            System.out.println("ERRO NA CONEXÃO: "+ e);
         }
         return conJDBC;
+    
     }
 
     }
