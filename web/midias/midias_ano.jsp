@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.DAO.midiaDAO" %>
-<%@page import="br.com.DAO.temaDAO" %>
+<%@page import="br.com.DAO.MidiaDAO" %>
+<%@page import="br.com.DAO.TemaDAO" %>
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.model.Tema" %>
 <%@page import="java.util.ArrayList"%>
@@ -39,7 +39,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
               <%
                   
                   try{
-               midiaDAO midia=new midiaDAO();
+               MidiaDAO midia=new MidiaDAO();
              
                ArrayList<Midia> list = midia.midias_do_ano();
               for(int num=0;num<list.size();num++){

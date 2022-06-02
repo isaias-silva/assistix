@@ -3,8 +3,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.DAO.midiaDAO" %>
-<%@page import="br.com.DAO.temaDAO" %>
+<%@page import="br.com.DAO.MidiaDAO" %>
+<%@page import="br.com.DAO.TemaDAO" %>
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.model.Tema" %>
 <%@page import="java.util.ArrayList"%>
@@ -52,7 +52,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                </ul>
               <ul>
                  <%
-                 temaDAO tema= new temaDAO();
+                 TemaDAO tema= new TemaDAO();
                  ArrayList<Tema> temas= tema.verTema();
                  for(int n=0;n< temas.size();n++){
                      out.print("<li>"+"<a href='"+"./midias/tema.jsp?name="+temas.get(n).getName()+"' target='_blank'>"+temas.get(n).getName()+"</a></li> ");
@@ -69,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
               <%
                   
                   try{
-               midiaDAO midia=new midiaDAO();
+               MidiaDAO midia=new MidiaDAO();
                ArrayList<Midia> list = midia.verMidia();
               for(int num=0;num<list.size();num++){
                   out.print("<a href='./midias/mid.jsp?name="+list.get(num).getName()+"&mask_id="+list.get(num).getId()+"''/>"

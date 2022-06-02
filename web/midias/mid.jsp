@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="br.com.DAO.midiaDAO" %>
-<%@page import="br.com.DAO.comentDAO" %>
+<%@page import="br.com.DAO.MidiaDAO" %>
+<%@page import="br.com.DAO.ComentDAO" %>
 <%@page import="br.com.model.Coment" %>
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.util.Etary" %>
@@ -26,8 +26,8 @@
              String tm="";
             String name = request.getParameter("name");
              int id=Integer.parseInt(request.getParameter("mask_id"));
-            midiaDAO midia=new midiaDAO();
-            comentDAO control=new comentDAO();
+            MidiaDAO midia=new MidiaDAO();
+            ComentDAO control=new ComentDAO();
             Notarender n_render=new Notarender();
             try{
        
