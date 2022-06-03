@@ -12,7 +12,7 @@ public class ConexaoDAO {
     public Connection ConexaoDAO() throws ClassNotFoundException {
 
          String server = "anhanguera.cmi4gdq4rsw6.sa-east-1.rds.amazonaws.com";
-        String banco = "assistix";
+        String banco = "assisflix";
         String user = "admin";
         String pass = "adminadmin";
         

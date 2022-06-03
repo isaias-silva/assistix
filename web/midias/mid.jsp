@@ -48,7 +48,7 @@
           + "</div>");
     
           out.print("<div class='info-film'>"
-          + "<h1>"+midiares.getName()+"</h1>"
+          + "<h1>"+midiares.getNome()+"</h1>"
           + "<p><b>"+midiares.getYear()+"</b></p>"
           + "<p>"+midiares.getDirector()+"</p>"
     
@@ -86,7 +86,7 @@
               
                ArrayList<Midia> list = midia.midias_relacionadas(tm);
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='../midias/mid.jsp?name="+list.get(num).getName()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='../midias/mid.jsp?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class comentDAO {
+public class ComentDAO {
 
     Connection con;
     PreparedStatement pstm;
@@ -38,7 +38,7 @@ public class comentDAO {
         }
     }
 
-    public ArrayList<Coment> vercoment(int id) throws SQLException {
+    public ArrayList<Coment> vercoment(int id) throws SQLException, ClassNotFoundException {
         String sql = "select comentario.comentador,comentario.comentario,comentario.nota,comentario.data_comentario from comentario where id_filme=" + id + "";
         System.out.println("selecionando midias");
         con = new ConexaoDAO().ConexaoDAO();
@@ -65,7 +65,7 @@ public class comentDAO {
 
     }
 
-    public ArrayList<Integer> vernotas(int id) throws SQLException {
+    public ArrayList<Integer> vernotas(int id) throws SQLException, ClassNotFoundException {
 
         String sql = "select nota from comentario where id_filme=" + id + "";
 

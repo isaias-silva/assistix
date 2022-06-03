@@ -147,7 +147,7 @@ transition: 1s linear all;
 }
 
 .film-content img{
-   width: 100%;
+   width: 90%;
    transition: 0.5s linear all;
 }
 .film-content:hover img{

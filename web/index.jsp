@@ -52,10 +52,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                </ul>
               <ul>
                  <%
+                     try{
                  TemaDAO tema= new TemaDAO();
                  ArrayList<Tema> temas= tema.verTema();
                  for(int n=0;n< temas.size();n++){
                      out.print("<li>"+"<a href='"+"./midias/tema.jsp?name="+temas.get(n).getName()+"' target='_blank'>"+temas.get(n).getName()+"</a></li> ");
+                     
+                     }}catch(Exception err){
                      
                      }
                  %>
@@ -72,11 +75,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                MidiaDAO midia=new MidiaDAO();
                ArrayList<Midia> list = midia.verMidia();
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./midias/mid.jsp?name="+list.get(num).getName()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='./midias/mid.jsp?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"
-                  + "<p>"+list.get(num).getName()+"</p>"
+                  + "<p>"+list.get(num).getNome()+"</p>"
                   
                   + ""+"</a>");
                   }

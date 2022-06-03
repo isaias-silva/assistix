@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Midia {
-    private String name;
+    private String nome;
     private String director;
     private int year;
     private String plot;
@@ -18,17 +18,17 @@ public class Midia {
     private float nota;
     private ArrayList<Float> notas;
     /**
-     * @return the name
+     * @return the nome
      */
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param name the name to set
+     * @param nome the nome to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**

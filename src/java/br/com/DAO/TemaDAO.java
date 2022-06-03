@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class temaDAO {
+public class TemaDAO {
     Connection con;
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<Tema> lista= new ArrayList();
-    public void cadastrarTema(Tema tema){
+    public void cadastrarTema(Tema tema) throws ClassNotFoundException{
       String sql = "insert into tema (nome) values (?)";
         con = new ConexaoDAO().ConexaoDAO();
         try {
@@ -25,7 +25,7 @@ public class temaDAO {
         } catch (SQLException e) {
         }
     }
-    public ArrayList<Tema> verTema(){
+    public ArrayList<Tema> verTema() throws ClassNotFoundException{
      String sql = "select * from tema";
           
     con = new ConexaoDAO().ConexaoDAO();
