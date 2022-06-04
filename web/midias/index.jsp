@@ -86,7 +86,7 @@
               
                ArrayList<Midia> list = midia.midias_relacionadas(tm);
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='../midias/mid.jsp?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='../midias?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"

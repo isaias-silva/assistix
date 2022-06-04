@@ -1,5 +1,5 @@
 
-<%@page import="br.com.DAO.comentDAO" %>
+<%@page import="br.com.DAO.ComentDAO" %>
 <%@page import="br.com.model.Coment" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,13 +21,13 @@
             comentario.setComentario(coment);
             comentario.setId_midia(id);
             comentario.setNota(nota);
-                  comentDAO comentdao=new comentDAO();
+                  ComentDAO comentdao=new ComentDAO();
                   try{
                   comentdao.comentar(comentario);
                 out.print("comentou");
                 out.print(filmname);
                 out.print(id);
-               response.sendRedirect("../midias/mid.jsp?name="+filmname+"&mask_id="+id);
+               response.sendRedirect("../midias?name="+filmname+"&mask_id="+id);
                 }catch(Exception e){
                    out.print("nao comentou "+e );
                 }    
