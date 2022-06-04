@@ -34,12 +34,12 @@ public class MidiaDAO {
     }
      public ArrayList<Midia> verMidia() throws SQLException, ClassNotFoundException{
     String sql = "select * from midia join tema on midia.id_tema=tema.id and m_status !='deleted' ";
-         System.out.println("selecionando midias");    
+ 
     con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
-           System.out.println("indo");
+      
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -58,7 +58,7 @@ public class MidiaDAO {
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-             System.out.println(lista.size());
+         
           return lista;
            
      }
@@ -66,18 +66,18 @@ public class MidiaDAO {
        Midia midia_item=new Midia(); 
        //impedir sql injection
      String sql = "SELECT * FROM midia JOIN tema  on id_tema=tema.id WHERE nome= '"+name+"'  and m_status !='deleted'";
-         System.out.println("procurando midia");    
+
     con = new ConexaoDAO().ConexaoDAO();
         try {
            
             pstm = con.prepareStatement(sql);
         
-            System.out.println(name);
+     
            
             rs = pstm.executeQuery(sql);
            
             while(rs.next()){
-                System.out.println();
+            
                 midia_item.setNome(rs.getString("nome"));
                 midia_item.setDirector(rs.getString("diretor"));
                  midia_item.setPlot(rs.getString("enredo"));
@@ -105,7 +105,7 @@ public class MidiaDAO {
            
      
             rs = pstm.executeQuery(sql);
-           System.out.println("indo");
+        
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -124,7 +124,7 @@ public class MidiaDAO {
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-             System.out.println(lista.size());
+        
           return lista;
     
  }
@@ -139,7 +139,7 @@ public class MidiaDAO {
            
      
             rs = pstm.executeQuery(sql);
-           System.out.println("indo");
+         
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -157,7 +157,7 @@ public class MidiaDAO {
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-             System.out.println(lista.size());
+    
           return lista;
     
  }
@@ -170,7 +170,7 @@ public class MidiaDAO {
            
      
             rs = pstm.executeQuery(sql);
-           System.out.println("indo");
+      
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -184,7 +184,7 @@ public class MidiaDAO {
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-             System.out.println(lista.size());
+     
           return lista;
     
  }
@@ -197,7 +197,7 @@ public class MidiaDAO {
            
      
             rs = pstm.executeQuery(sql);
-           System.out.println("indo");
+        
             while(rs.next()){
                 
                 Midia objMidia = new Midia();

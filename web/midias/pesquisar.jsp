@@ -30,15 +30,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   
             </form>
             </header>
-       
+
         <section>
            
             <div class="capa">
                </div>
               <div class="capa-help"></div>
            
-          
-          <div class="items busca">
+               <div class="items busca">
         
               
               <%

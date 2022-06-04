@@ -46,9 +46,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                </label>
                <div id="list" class="esconder">
               <ul>
-                  <li><a href="./midias/midias_ano.jsp" target="_blank">lançamentos do ano</a></li>
-                    <li><a href="./midias/tipo.jsp?tipo=serie" target>séries</a></li>
-                    <li><a href="./midias/tipo.jsp?categoria=filme" target="_blank">filmes</a></li>
+                  <li><a href="./midias/midiatype.jsp?go=year" target="_blank">lançamentos do ano</a></li>
+                    <li><a href="./midias/midiatype.jsp?go=type&categoria=serie" target="_blank">séries</a></li>
+                    <li><a href="./midias/midiatype.jsp?go=type&categoria=filme" target="_blank">filmes</a></li>
                </ul>
               <ul>
                  <%
@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                  TemaDAO tema= new TemaDAO();
                  ArrayList<Tema> temas= tema.verTema();
                  for(int n=0;n< temas.size();n++){
-                     out.print("<li>"+"<a href='"+"./midias/tema.jsp?name="+temas.get(n).getName()+"' target='_blank'>"+temas.get(n).getName()+"</a></li> ");
+                     out.print("<li>"+"<a href='"+"./midias/midiatype.jsp?go=theme&name="+temas.get(n).getName()+"' target='_blank'>"+temas.get(n).getName()+"</a></li> ");
                      
                      }}catch(Exception err){
                      

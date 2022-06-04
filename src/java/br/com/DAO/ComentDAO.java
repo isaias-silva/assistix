@@ -40,12 +40,12 @@ public class ComentDAO {
 
     public ArrayList<Coment> vercoment(int id) throws SQLException, ClassNotFoundException {
         String sql = "select comentario.comentador,comentario.comentario,comentario.nota,comentario.data_comentario from comentario where id_filme=" + id + "";
-        System.out.println("selecionando midias");
+     
         con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
-            System.out.println("indo");
+     
             while (rs.next()) {
                 Coment objcoment = new Coment();
                 objcoment.setNota(rs.getInt("nota"));
@@ -60,7 +60,7 @@ public class ComentDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
-        System.out.println(lista.size());
+ 
         return lista;
 
     }
@@ -73,7 +73,7 @@ public class ComentDAO {
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
-            System.out.println("indo");
+        
             while (rs.next()) {
                 int nota = rs.getInt("nota");
 
@@ -84,7 +84,7 @@ public class ComentDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
-        System.out.println(lista.size());
+     
 
         return notas;
 

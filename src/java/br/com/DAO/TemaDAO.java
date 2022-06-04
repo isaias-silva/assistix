@@ -32,7 +32,7 @@ public class TemaDAO {
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
-            System.out.println("indo temas");
+       
             while(rs.next()){
                Tema objTema = new Tema();
                objTema.setName(rs.getString("tema"));
