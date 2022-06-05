@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AdminDAO {
 
@@ -15,7 +16,7 @@ public class AdminDAO {
     Connection con;
     PreparedStatement pstm;
     ResultSet rs;
-
+    ArrayList<Admin> lista=new ArrayList();
     public void createAdmin(Admin admin) throws ClassNotFoundException, NoSuchAlgorithmException, UnsupportedEncodingException {
         String sql = "insert into admins (nickname,senha,admin_class) values (?,?,?)";
         con = new ConexaoDAO().ConexaoDAO();
@@ -50,13 +51,37 @@ public class AdminDAO {
                     admLogado.setId(rs.getInt("id"));
                     admLogado.setNickname(rs.getString("nickname"));
                     admLogado.setClasse(rs.getString("admin_class"));
+                    pstm.close();
                     return admLogado;
                 }
+                
             }
         } catch (SQLException err) {
             System.out.println(err);
         }
 
         return null;
+    }
+    public ArrayList<Admin> verAdmins() throws ClassNotFoundException{
+        String sql = "select * from admins where admin_status!='deleted' ";
+        con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+            rs = pstm.executeQuery(sql);
+
+            while (rs.next()) {
+              Admin admreturn= new Admin();
+                admreturn.setId(rs.getInt("id"));
+                  admreturn.setNickname(rs.getString("nickname"));
+                  admreturn.setClasse(rs.getString("admin_class"));
+               lista.add(admreturn);
+            }
+            pstm.close();
+        } catch (SQLException err) {
+            System.out.println(err);
+        }
+
+        return lista;
+    
     }
 }

@@ -23,7 +23,7 @@
                 admin.setClasse(classe);
                 AdminDAO admincontrol=new AdminDAO();
                 admincontrol.createAdmin(admin);
-                out.print("criado");
+                response.sendRedirect("./form_new_adm.jsp");
             }else{
             
          

@@ -26,14 +26,20 @@
         <section>
             <aside>
                 <<ul>
-                    <li><a href="editor">temas</a></li>
-                    <li><a href="editor">admins</a></li>
+                    <li><a href="editor">criar temas</a></li>
+                    <%
+                    if(adm.getClasse().equals("master")){
+                       out.print("<li><a href='create/form_new_adm.jsp'>admins</a></li>");
+                        }
+                    %>
+              
                     <li><a href="editor">comentários</a></li>
                  
                 </ul>
                 <div class="info">
                     <p><b>admin:</b> <%=adm.getNickname()%></p>
                      <p><b>classe:</b> <%=adm.getClasse()%></p>
+                     <p><a href="./exit.jsp">sair</a></p>
                 </div>
             </aside>
         </section>
