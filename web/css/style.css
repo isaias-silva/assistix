@@ -427,3 +427,11 @@ border-bottom:2px solid aqua;
 header h1 a{
     font-size: 32px;
 }
+  .info{
+   color:#fff;
+   border:1px solid #fff;
+   padding:10px;
+   position:absolute;
+   bottom:0;
+   width: 100%;
+  }

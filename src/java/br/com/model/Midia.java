@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 public class Midia {
+    
     private String nome;
     private String director;
     private int year;
@@ -155,6 +156,7 @@ public class Midia {
      */
     public void setId(int id) {
         this.id = id;
+    
     }
 
 }

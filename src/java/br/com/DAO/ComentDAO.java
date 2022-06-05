@@ -2,15 +2,12 @@ package br.com.DAO;
 
 import br.com.model.Coment;
 import java.sql.Connection;
-
-import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ComentDAO {
-
     Connection con;
     PreparedStatement pstm;
     ResultSet rs;
@@ -21,26 +18,21 @@ public class ComentDAO {
         String sql = "insert into comentario (comentador,comentario,nota,id_filme,data_comentario) values (?,?,?,?,?)";
         con = new ConexaoDAO().ConexaoDAO();
         try {
-
             pstm = con.prepareStatement(sql);
             pstm.setString(1, comentario.getComentador());
             pstm.setString(2, comentario.getComentario());
             pstm.setInt(3, comentario.getNota());
             pstm.setInt(4, comentario.getId_midia());
-
-            pstm.setDate(5, (java.sql.Date) comentario.getDate());
-
+           pstm.setDate(5, (java.sql.Date) comentario.getDate());
             pstm.execute();
             pstm.close();
-
         } catch (SQLException e) {
 
         }
     }
 
     public ArrayList<Coment> vercoment(int id) throws SQLException, ClassNotFoundException {
-        String sql = "select comentario.comentador,comentario.comentario,comentario.nota,comentario.data_comentario from comentario where id_filme=" + id + "";
-     
+        String sql = "select comentario.comentador,comentario.comentario,comentario.nota,comentario.data_comentario,comentario.id from comentario where id_filme=" + id + " and comentario_status !='deleted'";
         con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
@@ -49,6 +41,7 @@ public class ComentDAO {
             while (rs.next()) {
                 Coment objcoment = new Coment();
                 objcoment.setNota(rs.getInt("nota"));
+                objcoment.setId(rs.getInt("id"));
                 objcoment.setComentador(rs.getString("comentador"));
                 objcoment.setComentario(rs.getString("comentario"));
                 objcoment.setDate(rs.getDate("data_comentario"));
@@ -67,7 +60,7 @@ public class ComentDAO {
 
     public ArrayList<Integer> vernotas(int id) throws SQLException, ClassNotFoundException {
 
-        String sql = "select nota from comentario where id_filme=" + id + "";
+        String sql = "select nota from comentario where id_filme=" + id + " and comentario_status !='deleted'";
 
         con = new ConexaoDAO().ConexaoDAO();
         try {

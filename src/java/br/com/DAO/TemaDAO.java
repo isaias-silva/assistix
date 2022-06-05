@@ -26,7 +26,7 @@ public class TemaDAO {
         }
     }
     public ArrayList<Tema> verTema() throws ClassNotFoundException{
-     String sql = "select * from tema";
+     String sql = "select * from tema where tema_status !='deleted'";
           
     con = new ConexaoDAO().ConexaoDAO();
         try {
@@ -36,7 +36,9 @@ public class TemaDAO {
             while(rs.next()){
                Tema objTema = new Tema();
                objTema.setName(rs.getString("tema"));
-                lista.add(objTema);
+              objTema.setId(rs.getInt("id"));
+              
+               lista.add(objTema);
             
             }
             pstm.close();

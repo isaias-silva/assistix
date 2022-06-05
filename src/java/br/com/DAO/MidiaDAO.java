@@ -66,18 +66,11 @@ public class MidiaDAO {
        Midia midia_item=new Midia(); 
        //impedir sql injection
      String sql = "SELECT * FROM midia JOIN tema  on id_tema=tema.id WHERE nome= '"+name+"'  and m_status !='deleted'";
-
     con = new ConexaoDAO().ConexaoDAO();
         try {
-           
             pstm = con.prepareStatement(sql);
-        
-     
-           
             rs = pstm.executeQuery(sql);
-           
             while(rs.next()){
-            
                 midia_item.setNome(rs.getString("nome"));
                 midia_item.setDirector(rs.getString("diretor"));
                  midia_item.setPlot(rs.getString("enredo"));
@@ -90,22 +83,16 @@ public class MidiaDAO {
             }
             pstm.close();
              } catch (SQLException e) {
-                 
                  System.out.println(e);
              }   
-
             return midia_item;
-
   }
  public ArrayList<Midia> midias_relacionadas(String tema) throws ClassNotFoundException{
     String sql="select * from midia join tema where tema='"+tema+"' and id_tema=tema.id and m_status !='deleted'";
       con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
-           
-     
             rs = pstm.executeQuery(sql);
-        
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -118,28 +105,21 @@ public class MidiaDAO {
                objMidia.setUrl_img(rs.getString("capa"));
                objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
                 lista.add(objMidia);
-            
             }
             pstm.close();
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-        
           return lista;
-    
  }
  public ArrayList<Midia> midias_do_ano() throws ClassNotFoundException{
      Calendar cal = GregorianCalendar.getInstance();
-
      int ano=cal.get(Calendar.YEAR);
     String sql="select * from midia where ano="+ano+"  and m_status !='deleted'";
       con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
-           
-     
             rs = pstm.executeQuery(sql);
-         
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -151,26 +131,19 @@ public class MidiaDAO {
                objMidia.setUrl_img(rs.getString("capa"));
                objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
                 lista.add(objMidia);
-            
             }
             pstm.close();
              } catch (SQLException e) {
                 System.out.println(e);
              } 
-    
           return lista;
-    
  }
  public ArrayList<Midia> midias_tipo(String tipo) throws ClassNotFoundException{
- 
     String sql="select * from midia where tipo='"+tipo+"'";
       con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
-           
-     
             rs = pstm.executeQuery(sql);
-      
             while(rs.next()){
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
@@ -178,28 +151,20 @@ public class MidiaDAO {
                   objMidia.setType(rs.getString("tipo"));
                objMidia.setUrl_img(rs.getString("capa"));
                 lista.add(objMidia);
-            
             }
             pstm.close();
              } catch (SQLException e) {
                 System.out.println(e);
-             } 
-     
+             }    
           return lista;
-    
  }
  public ArrayList<Midia> midias_procurar(String palavra) throws ClassNotFoundException{
- 
-    String sql="select * from midia";
+    String sql="select * from midia where m_status!='deleted' ";
       con = new ConexaoDAO().ConexaoDAO();
         try {
-            pstm = con.prepareStatement(sql);
-           
-     
+            pstm = con.prepareStatement(sql);   
             rs = pstm.executeQuery(sql);
-        
-            while(rs.next()){
-                
+            while(rs.next()){              
                 Midia objMidia = new Midia();
                 objMidia.setId(rs.getInt("id"));    
                 objMidia.setNome(rs.getString("nome"));
@@ -211,17 +176,12 @@ public class MidiaDAO {
                objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
               if(objMidia.getNome().contains(palavra)){
               lista.add(objMidia);
-              }
-               
-               
-            
+              }       
             }
             pstm.close();
              } catch (SQLException e) {
                 System.out.println(e);
-             } 
-          
+             }       
     return lista;
  }
- 
 }

@@ -18,7 +18,7 @@ public class Coment {
     private int nota;
     private int id_midia;
     private Date date;
-
+    private int id;
   
    public Coment(){
        date=new Date();
@@ -84,6 +84,20 @@ public class Coment {
       java.sql.Date dataSql = new java.sql.Date(date.getTime());
    
     return dataSql;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

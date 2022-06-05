@@ -47,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                MidiaDAO midia=new MidiaDAO();
                ArrayList<Midia> list = midia.midias_procurar(pesquisa);
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./mid.jsp?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='./?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"

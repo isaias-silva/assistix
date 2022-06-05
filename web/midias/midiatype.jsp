@@ -47,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
              
                ArrayList<Midia> list = midia.midias_do_ano();
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='./?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"
@@ -65,7 +65,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                String tipo= request.getParameter("categoria");
                ArrayList<Midia> list = midia.midias_tipo(tipo);
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='./?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"
@@ -84,7 +84,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                String tema= request.getParameter("name");
                ArrayList<Midia> list = midia.midias_relacionadas(tema);
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  out.print("<a href='./?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
                   + "<div class='film-content'>"
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
                   + "</div>"
