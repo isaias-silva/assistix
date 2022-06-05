@@ -14,9 +14,8 @@
         <title>painel de controle- Assistix;</title>
            <% 
   Admin adm=(Admin)session.getAttribute("admin");  
- if(adm==null){
-       response.sendError(HttpServletResponse.SC_UNAUTHORIZED);       
-       }
+         
+       
        %>
     </head>
     <body>
@@ -28,8 +27,11 @@
                 <<ul>
                     <li><a href="editor">criar temas</a></li>
                     <%
+                    if(adm!=null){
                     if(adm.getClasse().equals("master")){
                        out.print("<li><a href='create/form_new_adm.jsp'>admins</a></li>");
+                        }}else{
+                          response.sendError(HttpServletResponse.SC_UNAUTHORIZED);   
                         }
                     %>
               
@@ -37,8 +39,8 @@
                  
                 </ul>
                 <div class="info">
-                    <p><b>admin:</b> <%=adm.getNickname()%></p>
-                     <p><b>classe:</b> <%=adm.getClasse()%></p>
+                    <p><b>admin:</b> <% if(adm!=null){out.print(adm.getNickname());} %></p>
+                     <p><b>classe:</b> <%if(adm!=null){out.print(adm.getClasse());} %></p>
                      <p><a href="./exit.jsp">sair</a></p>
                 </div>
             </aside>

@@ -16,11 +16,11 @@
         
                }
           AdminDAO control= new AdminDAO();
-           ArrayList<Admin> lista_two=new ArrayList();
+          
           ArrayList<Admin> lista=control.verAdmins();
           
            for(int x=0; x<lista.size();x++){
-           lista_two.add(lista.get(x));    
+            
            if(lista.get(x).getNickname().equals(adm.getNickname())){
                lista.remove(x);
                }
@@ -34,10 +34,16 @@
             <tr>
                 <th>Nickname</th>
                 <th>classe</th>
-                <th>opção</th>
+                <th colspan="2">opções</th>
             </tr>
             <%
             for(int i=0; i<lista.size();i++){
+                String depro="<a href='../update/admin.jsp?id="+lista.get(i).getId()+"&update=promote'>promover</a> ";
+              
+                if(lista.get(i).getClasse().equals("master")){
+                depro="<a href='../update/admin.jsp?id="+lista.get(i).getId()+"&update=demote'>rebaixar</a>";
+              
+                }
                out.print("<tr>"
                + "<td>"
                + lista.get(i).getNickname()
@@ -48,13 +54,16 @@
                + "<td>"
                + "<a href='../delete/admin.jsp?id="+lista.get(i).getId()+"'>deletar</a>"
                + "</td>"
+               + "<td>"
+               +depro
+               + "</td>"
                + "</tr>");
                 }
             %>
         </table>
         <div class="login admincreate">
             <h1>criar admin</h1>
-        <form action="../create/createadmin.jsp" method="POST">
+        <form action="./admin.jsp" method="POST">
             <input type="text" name="nickname" required>
             <input type="password" name="pass" required>
             
@@ -79,7 +88,10 @@
                 }
             }
          function check(){
-                let nick=document.querySelector("input");
+        <%
+         ArrayList<Admin> lista_two=control.verAdmins();
+        %>  
+        let nick=document.querySelector("input");
                 let users=[];
                         <%
                         for(int y=0;y<lista.size();y++){
@@ -89,7 +101,7 @@
          
                  for(let i in users){
                      if(nick.value==users[i]){
-                         alert("usuario já existe");
+                         alert("admin "+users[i]+" já existe");
                          return false;
                  }
           } 

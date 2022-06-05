@@ -84,4 +84,35 @@ public class AdminDAO {
         return lista;
     
     }
+       public void deleteAdmin(int id) throws ClassNotFoundException{
+        String sql = "update admins set admin_status='deleted' where id="+id+"";
+        con = new ConexaoDAO().ConexaoDAO();
+        try {
+             pstm = con.prepareStatement(sql);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
+        public void updateAdmin(int id, String action) throws ClassNotFoundException{
+        String sql = null;
+            if(action.equals("promote")){
+        sql ="update admins set admin_class='master' where id="+id+"";
+        }
+        if(action.equals("demote")){
+        
+      sql ="update admins set admin_class='basic' where id="+id+"";
+        
+        }
+  
+        con = new ConexaoDAO().ConexaoDAO();
+        try {
+             pstm = con.prepareStatement(sql);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
 }
