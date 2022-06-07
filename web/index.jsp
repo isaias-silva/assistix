@@ -1,7 +1,3 @@
-<%-- 
- 
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.DAO.MidiaDAO" %>
 <%@page import="br.com.DAO.TemaDAO" %>

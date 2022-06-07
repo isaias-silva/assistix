@@ -16,6 +16,7 @@ public class Midia {
     private String url_img;
     private  String wallpaper;
     private int id;
+    private int id_tema;
     private float nota;
     private ArrayList<Float> notas;
     /**
@@ -157,6 +158,20 @@ public class Midia {
     public void setId(int id) {
         this.id = id;
     
+    }
+
+    /**
+     * @return the id_tema
+     */
+    public int getId_tema() {
+        return id_tema;
+    }
+
+    /**
+     * @param id_tema the id_tema to set
+     */
+    public void setId_tema(int id_tema) {
+        this.id_tema = id_tema;
     }
 
 }

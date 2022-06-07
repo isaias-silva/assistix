@@ -24,8 +24,11 @@
         </header>
         <section>
             <aside>
-                <<ul>
+                <ul style="margin-top: 40px;">
+                   <li><a href="editor">criar midia</a></li>
                     <li><a href="editor">criar temas</a></li>
+                 
+                
                     <%
                     if(adm!=null){
                     if(adm.getClasse().equals("master")){
@@ -44,6 +47,29 @@
                      <p><a href="./exit.jsp">sair</a></p>
                 </div>
             </aside>
+                           
+                               <div class="items">
+                       
+              <%
+                  
+                  try{
+               MidiaDAO midia=new MidiaDAO();
+               ArrayList<Midia> list = midia.verMidia();
+              for(int num=0;num<list.size();num++){
+                  out.print("<a href='./editor.jsp?method=edit&name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
+                  + "<div class='film-content'>"
+                  + "<img src='"+list.get(num).getUrl_img()+"'>"
+                  + "</div>"
+               
+                  
+                  + ""+"</a>");
+                  }
+    }catch(Exception e){
+    out.print("erro" + e);
+    }             
+%>
+          
+          </div>
         </section>
         <footer>
             

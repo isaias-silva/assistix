@@ -139,7 +139,6 @@ z-index: 10000;
    width: 100%;
     height: 100%;
     background:#111111;
-    border-radius: 20px;
     overflow: hidden;
 background-size: cover;
 text-align: center;
@@ -148,6 +147,7 @@ transition: 1s linear all;
 
 .film-content img{
    width: 90%;
+ 
    transition: 0.5s linear all;
 }
 .film-content:hover img{

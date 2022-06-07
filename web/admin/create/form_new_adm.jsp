@@ -73,9 +73,10 @@
             </select>
             <p style="color:red; font-weight: bold; background:black;margin: 5px;" id="aviso"></p>
        <input type="submit" value="criar admin" onclick="return check()" />
+       
         </form>
     </div>
-        
+        <a href="../" style="background: blue; padding: 5px; border-radius: 10px;">retornar</a>
         <script>
             function aviso(value){
                 let aviso= document.getElementById("aviso");
