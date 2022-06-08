@@ -10,6 +10,7 @@
     </head>
     <body>
      <%
+         String message="";
      String titulo=request.getParameter("titulo");
      int ano=Integer.parseInt(request.getParameter("ano"));
      String diretor=request.getParameter("diretor");    
@@ -19,7 +20,7 @@
     String tipo=request.getParameter("tipo");
     int tema=Integer.parseInt(request.getParameter("tema"));
     String enredo=request.getParameter("enredo");
-   
+    int admin_id=Integer.parseInt(request.getParameter("idadm"));
     Midia midiaNew= new Midia();
     midiaNew.setNome(titulo);
     midiaNew.setYear(ano);
@@ -30,16 +31,25 @@
     midiaNew.setType(tipo);
     midiaNew.setWallpaper(wallpaper);
     midiaNew.setUrl_img(capa);
+      midiaNew.setId_admin(admin_id);
     
     MidiaDAO control=new MidiaDAO();
     try{
          control.cadastrarMidia(midiaNew);
-         out.print("midia criada");
+     
+         message="midia criada";
+         
+         new Thread().sleep(2000);
+          response.sendRedirect("../dashboard.jsp");
+  
          }catch(Exception err){
+         message="midia não criada";
          out.print("erro ao criar: "+ err);
          }
     
 %>
-         
+<script>
+    alert(<%=message%>);
+</script>     
     </body>
 </html>

@@ -17,8 +17,8 @@ public class Midia {
     private  String wallpaper;
     private int id;
     private int id_tema;
-    private float nota;
-    private ArrayList<Float> notas;
+    private int id_admin;
+ 
     /**
      * @return the nome
      */
@@ -172,6 +172,20 @@ public class Midia {
      */
     public void setId_tema(int id_tema) {
         this.id_tema = id_tema;
+    }
+
+    /**
+     * @return the id_admin
+     */
+    public int getId_admin() {
+        return id_admin;
+    }
+
+    /**
+     * @param id_admin the id_admin to set
+     */
+    public void setId_admin(int id_admin) {
+        this.id_admin = id_admin;
     }
 
 }

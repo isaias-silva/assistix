@@ -17,7 +17,7 @@ public class MidiaDAO {
     ArrayList<Midia> lista = new ArrayList();
 
     public void cadastrarMidia(Midia midia) throws ClassNotFoundException {
-        String sql = "insert into midia (nome,diretor,ano,enredo,tipo,id_tema,capa,wallpaper,faixa_etaria) values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into midia (nome,diretor,ano,enredo,tipo,id_tema,capa,wallpaper,faixa_etaria,id_admin) values (?,?,?,?,?,?,?,?,?,?)";
         con = new ConexaoDAO().ConexaoDAO();
         try {
 
@@ -31,6 +31,7 @@ public class MidiaDAO {
             pstm.setString(7, midia.getUrl_img());
             pstm.setString(8, midia.getWallpaper());
             pstm.setInt(9, midia.getFaixa_etaria());
+            pstm.setInt(10, midia.getId_admin());
             pstm.execute();
             pstm.close();
 
@@ -38,7 +39,17 @@ public class MidiaDAO {
             System.out.println("erro: " + e);
         }
     }
-
+ public void deleteMidia(int id) throws ClassNotFoundException{
+        String sql = "update midia set m_status='deleted' where id="+id+"";
+        con = new ConexaoDAO().ConexaoDAO();
+        try {
+             pstm = con.prepareStatement(sql);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException err) {
+            System.out.println(err);
+        }
+    }
     public ArrayList<Midia> verMidia() throws SQLException, ClassNotFoundException {
         String sql = "select * from midia join tema on midia.id_tema=tema.id and m_status !='deleted' ";
 
@@ -99,6 +110,31 @@ public class MidiaDAO {
     public ArrayList<Midia> midias_relacionadas(String tema) throws ClassNotFoundException {
         String sql = "select * from midia join tema where tema='" + tema + "' and id_tema=tema.id and m_status !='deleted'";
         con = new ConexaoDAO().ConexaoDAO();
+        try {
+            pstm = con.prepareStatement(sql);
+            rs = pstm.executeQuery(sql);
+            while (rs.next()) {
+                Midia objMidia = new Midia();
+                objMidia.setId(rs.getInt("id"));
+                objMidia.setNome(rs.getString("nome"));
+                objMidia.setDirector(rs.getString("diretor"));
+                objMidia.setPlot(rs.getString("enredo"));
+                objMidia.setTema(rs.getString("tema"));
+                objMidia.setYear(rs.getInt("ano"));
+                objMidia.setType(rs.getString("tipo"));
+                objMidia.setUrl_img(rs.getString("capa"));
+                objMidia.setFaixa_etaria(rs.getInt("faixa_etaria"));
+                lista.add(objMidia);
+            }
+            pstm.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return lista;
+    }
+     public ArrayList<Midia> midiaAdmin(int id) throws ClassNotFoundException {
+        String sql = "select * from midia join tema where id_admin="+id+" and midia.id_tema=tema.id;";
+                con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
@@ -194,6 +230,7 @@ public class MidiaDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
+        
         return lista;
     }
 }

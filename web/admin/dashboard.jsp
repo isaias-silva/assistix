@@ -25,8 +25,8 @@
         <section>
             <aside>
                 <ul style="margin-top: 40px;">
-                   <li><a href="editor">criar midia</a></li>
-                    <li><a href="editor">criar temas</a></li>
+                   <li><a href="editor?method=create">criar midia</a></li>
+                    <li><a href="editor?method=create">criar temas</a></li>
                  
                 
                     <%
@@ -54,15 +54,26 @@
                   
                   try{
                MidiaDAO midia=new MidiaDAO();
-               ArrayList<Midia> list = midia.verMidia();
+               ArrayList<Midia> list;
+                 if(adm.getClasse().equals("master")){
+               list= midia.verMidia();
+                  }else{
+                        list= midia.midiaAdmin(adm.getId());
+                  }
               for(int num=0;num<list.size();num++){
-                  out.print("<a href='./editor.jsp?method=edit&name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"''/>"
-                  + "<div class='film-content'>"
+                  out.print(
+                
+                  "<div class='film-additional'>"
+                    + "<a href='../midias?name="+list.get(num).getNome()+"&mask_id="+list.get(num).getId()+"'' target='_blank'>"
+            
+                  +"<div class='film-content'>"
+                      
                   + "<img src='"+list.get(num).getUrl_img()+"'>"
+         
                   + "</div>"
-               
-                  
-                  + ""+"</a>");
+                  + "</a>"
+                  + "<a href='./delete/midia.jsp?id="+list.get(num).getId()+"'>deletar</a>"
+                  + "</div>");
                   }
     }catch(Exception e){
     out.print("erro" + e);

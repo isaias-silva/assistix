@@ -1,3 +1,22 @@
 *{margin:0; padding: 0;}
-
-form input,textarea,select{display:grid;}
+form{margin:10px;
+    padding:5px;
+     background:#0099;
+     color:#fff;
+     border-radius:5px;
+    }
+form input,textarea,select{display:flex;
+                          
+                          }
+textarea{
+    min-width:100%;
+    max-width:100%;
+    resize:block;
+    
+}
+input{
+  
+height: 20px;
+    font-size:16px;
+}
+form img{width:200px; float:right; filter:invert(100%)}
