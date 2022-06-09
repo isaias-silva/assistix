@@ -21,8 +21,7 @@
             tema.setName(request.getParameter("tema_nome"));
             try{
             control.cadastrarTema(tema);
-            out.print(tema.getName());
-//response.sendRedirect("../editor/tema.jsp");
+            response.sendRedirect("../editor/tema.jsp");
   
             }
             catch(Exception err){
