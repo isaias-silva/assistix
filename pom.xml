@@ -41,6 +41,8 @@
                     <target>1.7</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+             
                     </compilerArguments>
                 </configuration>
             </plugin>
