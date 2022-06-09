@@ -4,7 +4,7 @@
 <%@page import="br.com.DAO.ComentDAO" %>
 <%@page import="br.com.model.Coment" %>
 <%@page import="br.com.model.Admin" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
