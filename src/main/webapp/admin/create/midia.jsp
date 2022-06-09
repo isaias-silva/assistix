@@ -1,11 +1,11 @@
 <%@page import="br.com.DAO.MidiaDAO" %>
 <%@page import="br.com.DAO.TemaDAO" %>
 <%@page import="br.com.model.Midia" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
         <title>JSP Page</title>
     </head>
     <body>
@@ -44,7 +44,7 @@
           response.sendRedirect("../dashboard.jsp");
   
          }catch(Exception err){
-         message="midia n√£o criada";
+         message="midia n„o criada";
          out.print("erro ao criar: "+ err);
          }
     }else{

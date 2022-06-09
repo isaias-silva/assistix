@@ -5,11 +5,11 @@
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.model.Tema" %>
 <%@page import="br.com.model.Admin" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
            <link rel="stylesheet" href="../../css/editor.css"/>
        <% 
   Admin adm=(Admin)session.getAttribute("admin");  
@@ -44,9 +44,9 @@
             <input type="url" id="urlcapa" name="capa" >
             <label for="wl">link wallpaper</label>   
             <input type="url" id="wl" name="wallpaper" required>
-            <label for="faixa-etaria">faixa etÃ¡ria</label>  
+            <label for="faixa-etaria">faixa etária</label>  
             <select id="faixa-etaria" name="faixa-etaria">
-                <option value="0">Livre para todos os pÃºblicos</option>
+                <option value="0">Livre para todos os públicos</option>
                 <option value="10">+10</option>
                  <option value="12">+12</option>
                   <option value="14">+14</option>
@@ -56,7 +56,7 @@
             <label for="tipo">tipo</label>
                 <select id="tipo" name="tipo">
                     <option value="filme">filme</option>
-                    <option value="sÃ©rie">sÃ©rie</option>
+                    <option value="série">série</option>
                 </select>
             <label for="tema">tema</label>
             <select id="tema" name="tema">

@@ -2,11 +2,11 @@
 <%@page import="br.com.model.Tema" %>
 <%@page import="br.com.model.Admin" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
         <title>JSP Page</title>
     </head>
     <body>
@@ -27,7 +27,7 @@
   
             }else{
             
-            out.print("n√£o √© poss√≠vel deletar temas com filmes registrados, apague os filmes do tema que deseja excluir antes! "+filmesnumb);
+            out.print("n„o È possÌvel deletar temas com filmes registrados, apague os filmes do tema que deseja excluir antes! "+filmesnumb);
             }
             
             }

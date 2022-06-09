@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="br.com.DAO.MidiaDAO" %>
 <%@page import="br.com.DAO.ComentDAO" %>
 <%@page import="br.com.model.Coment" %>
@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
         <link rel="stylesheet" href="../css/estilo.css"/>
         <title>
             <%
@@ -64,7 +64,7 @@
           + idadehtml
           + "</div>"
           + "<div style='margin-top:20px'>"
-          +"<h2>avalia√ß√£o m√©dia</h2>"
+          +"<h2>avaliaÁ„o mÈdia</h2>"
           +n_render.notatotal_render(medianotas)
           + "</div>"
       
@@ -80,7 +80,7 @@
             %>
         </section>
         <div class="relacionados">
-            <h2>filmes e s√©ries relacionados:</h2>
+            <h2>filmes e sÈries relacionados:</h2>
 
             <div class="carrosel">
                 <button value="return" onclick="move(this.value)">&lt;</button>
@@ -111,7 +111,7 @@
         </div>
         <section class="coments">
 
-            <h2>Coment√°rios</h2>
+            <h2>Coment·rios</h2>
 
             <form action="../coment/send.jsp" method="POST">
                 <input type="hidden" name="film" value=<% out.print("'"+request.getParameter("name")+"'");%>>
@@ -125,9 +125,9 @@
                 </label> 
                 <span style="color:red;font-weight: bold;">0</span><input id="nota" name="nota_film" type="range" min="0" max="10" required=""><span style="color:green; font-weight: bold;">10</span>
                 <label for="comn">
-                    <p>seu coment√°rio</p>
+                    <p>seu coment·rio</p>
                 </label>
-                <textarea name="coment" id="comn" class="input_coment" placeholder="coment√°rio" maxlength="350" required>
+                <textarea name="coment" id="comn" class="input_coment" placeholder="coment·rio" maxlength="350" required>
                
                 </textarea>
                 <button value="submit">
@@ -161,6 +161,6 @@
         <footer>
             <p>2022 &copy;</p>
         </footer>
-        <<script src="../js/script.js"></script>
+        <script src="../js/script.js"></script>
     </body>
 </html>

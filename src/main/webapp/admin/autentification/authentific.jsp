@@ -1,10 +1,10 @@
 <%@page import="br.com.DAO.AdminDAO" %>
 <%@page import="br.com.model.Admin" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     
         <title>JSP Page</title>
     </head>
     <body>
@@ -17,7 +17,7 @@
                 AdminDAO admincontrol=new AdminDAO();
              Admin logado= admincontrol.adminAuth(admin);
              if(logado==null){
-            out.print("senha incorreta ou usu√°rio inexistente");
+            out.print("senha incorreta ou usu·rio inexistente");
             }else{   
              out.print("logado= "+admin.getNickname());
                 session.setAttribute("admin",logado);

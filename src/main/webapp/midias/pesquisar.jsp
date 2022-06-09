@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
 <%@page import="br.com.DAO.MidiaDAO" %>
 <%@page import="br.com.DAO.TemaDAO" %>
 <%@page import="br.com.model.Midia" %>
@@ -16,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     out.print(pesquisa);
 %>"
             </title>
-        <meta charset="UTF-8">
+     
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo.css"/>
    

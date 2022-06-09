@@ -1,11 +1,11 @@
 <%@page import="br.com.DAO.AdminDAO" %>
 <%@page import="br.com.model.Admin" %>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
            <link rel="stylesheet" href="../../css/login.css"/>
    
         <title>criar admin</title>
@@ -34,7 +34,7 @@
             <tr>
                 <th>Nickname</th>
                 <th>classe</th>
-                <th colspan="2">opÃ§Ãµes</th>
+                <th colspan="2">opções</th>
             </tr>
             <%
             for(int i=0; i<lista.size();i++){
@@ -81,7 +81,7 @@
             function aviso(value){
                 let aviso= document.getElementById("aviso");
             if(value==="master"){
-                    aviso.innerText="o master tem todas as permissÃµes possÃ­veis da aplicaÃ§Ã£o";            
+                    aviso.innerText="o master tem todas as permissões possíveis da aplicação";            
                 }
                 if(value==="basic"){
             
@@ -102,7 +102,7 @@
          
                  for(let i in users){
                      if(nick.value==users[i]){
-                         alert("admin "+users[i]+" jÃ¡ existe");
+                         alert("admin "+users[i]+" já existe");
                          return false;
                  }
           } 
