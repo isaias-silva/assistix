@@ -16,7 +16,8 @@ public class AdminDAO {
     Connection con;
     PreparedStatement pstm;
     ResultSet rs;
-    ArrayList<Admin> lista=new ArrayList();
+    ArrayList<Admin> lista = new ArrayList();
+
     public void createAdmin(Admin admin) throws ClassNotFoundException, NoSuchAlgorithmException, UnsupportedEncodingException {
         String sql = "insert into admins (nickname,senha,admin_class) values (?,?,?)";
         con = new ConexaoDAO().ConexaoDAO();
@@ -54,7 +55,7 @@ public class AdminDAO {
                     pstm.close();
                     return admLogado;
                 }
-                
+
             }
         } catch (SQLException err) {
             System.out.println(err);
@@ -62,7 +63,8 @@ public class AdminDAO {
 
         return null;
     }
-    public ArrayList<Admin> verAdmins() throws ClassNotFoundException{
+
+    public ArrayList<Admin> verAdmins() throws ClassNotFoundException {
         String sql = "select * from admins where admin_status!='deleted' ";
         con = new ConexaoDAO().ConexaoDAO();
         try {
@@ -70,11 +72,11 @@ public class AdminDAO {
             rs = pstm.executeQuery(sql);
 
             while (rs.next()) {
-              Admin admreturn= new Admin();
+                Admin admreturn = new Admin();
                 admreturn.setId(rs.getInt("id"));
-                  admreturn.setNickname(rs.getString("nickname"));
-                  admreturn.setClasse(rs.getString("admin_class"));
-               lista.add(admreturn);
+                admreturn.setNickname(rs.getString("nickname"));
+                admreturn.setClasse(rs.getString("admin_class"));
+                lista.add(admreturn);
             }
             pstm.close();
         } catch (SQLException err) {
@@ -82,33 +84,35 @@ public class AdminDAO {
         }
 
         return lista;
-    
+
     }
-       public void deleteAdmin(int id) throws ClassNotFoundException{
-        String sql = "update admins set admin_status='deleted' where id="+id+"";
+
+    public void deleteAdmin(int id) throws ClassNotFoundException {
+        String sql = "update admins set admin_status='deleted' where id=" + id + "";
         con = new ConexaoDAO().ConexaoDAO();
         try {
-             pstm = con.prepareStatement(sql);
+            pstm = con.prepareStatement(sql);
             pstm.execute();
             pstm.close();
         } catch (SQLException err) {
             System.out.println(err);
         }
     }
-        public void updateAdmin(int id, String action) throws ClassNotFoundException{
+
+    public void updateAdmin(int id, String action) throws ClassNotFoundException {
         String sql = null;
-            if(action.equals("promote")){
-        sql ="update admins set admin_class='master' where id="+id+"";
+        if (action.equals("promote")) {
+            sql = "update admins set admin_class='master' where id=" + id + "";
         }
-        if(action.equals("demote")){
-        
-      sql ="update admins set admin_class='basic' where id="+id+"";
-        
+        if (action.equals("demote")) {
+
+            sql = "update admins set admin_class='basic' where id=" + id + "";
+
         }
-  
+
         con = new ConexaoDAO().ConexaoDAO();
         try {
-             pstm = con.prepareStatement(sql);
+            pstm = con.prepareStatement(sql);
             pstm.execute();
             pstm.close();
         } catch (SQLException err) {

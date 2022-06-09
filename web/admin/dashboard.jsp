@@ -26,19 +26,19 @@
             <aside>
                 <ul style="margin-top: 40px;">
                    <li><a href="editor?method=create">criar midia</a></li>
-                    <li><a href="editor?method=create">criar temas</a></li>
                  
                 
                     <%
                     if(adm!=null){
                     if(adm.getClasse().equals("master")){
                        out.print("<li><a href='create/form_new_adm.jsp'>admins</a></li>");
-                        }}else{
+                       out.print("<li><a href='editor/tema.jsp'>criar temas</a></li>");
+                           }}else{
                           response.sendError(HttpServletResponse.SC_UNAUTHORIZED);   
                         }
                     %>
               
-                    <li><a href="editor">comentários</a></li>
+                    <li><a href="editor/comentarios.jsp">comentários</a></li>
                  
                 </ul>
                 <div class="info">

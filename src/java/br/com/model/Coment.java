@@ -1,7 +1,5 @@
 package br.com.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Coment {
@@ -19,7 +17,7 @@ public class Coment {
     private int id_midia;
     private Date date;
     private int id;
-  
+  private String midiaName;
    public Coment(){
        date=new Date();
         
@@ -98,6 +96,20 @@ public class Coment {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the midiaName
+     */
+    public String getMidiaName() {
+        return midiaName;
+    }
+
+    /**
+     * @param midiaName the midiaName to set
+     */
+    public void setMidiaName(String midiaName) {
+        this.midiaName = midiaName;
     }
 
     /**

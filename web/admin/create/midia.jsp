@@ -10,7 +10,8 @@
     </head>
     <body>
      <%
-         String message="";
+    if(session.getAttribute("admin")!=null){
+     String message="";
      String titulo=request.getParameter("titulo");
      int ano=Integer.parseInt(request.getParameter("ano"));
      String diretor=request.getParameter("diretor");    
@@ -46,10 +47,12 @@
          message="midia não criada";
          out.print("erro ao criar: "+ err);
          }
-    
+    }else{
+         response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+    }
 %>
 <script>
-    alert(<%=message%>);
+  
 </script>     
     </body>
 </html>

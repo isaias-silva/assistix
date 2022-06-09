@@ -26,6 +26,7 @@
              String tm="";
             String name = request.getParameter("name");
              int id=Integer.parseInt(request.getParameter("mask_id"));
+             
             MidiaDAO midia=new MidiaDAO();
             ComentDAO control=new ComentDAO();
             Notarender n_render=new Notarender();
@@ -38,6 +39,10 @@
            ArrayList<Integer> notas=control.vernotas(id);
            
            int medianotas=media.media(notas);
+           if(midiares.getNome()==null){
+                                   response.sendError(HttpServletResponse.SC_BAD_REQUEST);   
+  
+                }
          //-----------------------------------------------------------
            String idadehtml=etary.criar_idade(midiares.getFaixa_etaria());
           out.print("<div class='target-film'>"

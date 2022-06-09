@@ -3,6 +3,7 @@
 <%@page import="br.com.DAO.TemaDAO" %>
 <%@page import="br.com.model.Midia" %>
 <%@page import="br.com.model.Tema" %>
+<%@page import="br.com.util.Altercapa" %>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <!--
@@ -28,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
        
         <section>
            
-            <div class="capa">
+            <div class="capa" style="background-image: url(<%= new Altercapa().capareturn()%>)">
                </div>
               <div class="capa-help"></div>
            
@@ -87,9 +88,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
           </div>
         </section>
         <footer>
-            <p>2022 &copy;</p>
+            <p> feito por isaias santos <a href="https://github.com/isaias-silva/assistix" style="background: black; color:#fff; border:1px solid white;" target="_blank" rel="noopener noreferrer">github</a>
+    </p>
         </footer>
-        <<script src="./js/script.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 </html>
 
