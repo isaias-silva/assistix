@@ -40,7 +40,7 @@
                     <source>1.7</source>
                     <target>1.7</target>
                     <compilerArguments>
-                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    
                         <encoding>${project.build.sourceEncoding}</encoding>
              
                     </compilerArguments>

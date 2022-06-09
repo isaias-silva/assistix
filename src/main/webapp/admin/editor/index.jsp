@@ -30,7 +30,7 @@
         %>
         <form action="../create/midia.jsp" method="POST">
             <img src="https://cdn-icons-png.flaticon.com/512/21/21194.png" alt="alt"/>
-            <input type="hidden" name="idadm" value="<%=adm.getId()%>">
+            <input type="hidden" name="idadm" value="<%if(adm!=null){out.print(adm.getId());}%>">
             <label for="titulo">titulo</label>
             <input type="text" name="titulo" id="titulo" required>
            <label for="ano">ano</label>

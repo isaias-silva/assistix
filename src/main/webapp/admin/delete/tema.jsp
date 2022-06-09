@@ -27,7 +27,7 @@
   
             }else{
             
-            out.print("não é possível deletar temas com filmes registrados, apague os filmes do tema que deseja excluir antes!");
+            out.print("não é possível deletar temas com filmes registrados, apague os filmes do tema que deseja excluir antes! "+filmesnumb);
             }
             
             }

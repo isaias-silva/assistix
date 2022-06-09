@@ -1,8 +1,4 @@
-<%-- 
-    Document   : exit
-    Created on : 5 de jun de 2022, 09:49:50
-    Author     : eduardo
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

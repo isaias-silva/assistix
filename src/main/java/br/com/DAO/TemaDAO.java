@@ -44,21 +44,23 @@ public class TemaDAO {
 
     public int checkNumber(int id) throws ClassNotFoundException {
         ArrayList<String> listaCount = new ArrayList();
-        String sql = "select nome from midia where id_tema=" + id + "";
+        listaCount.clear();
+        String sql = "select nome, m_status from midia where id_tema="+id+ " and m_status != 'deleted'";
         con = new ConexaoDAO().ConexaoDAO();
         try {
             pstm = con.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
             while (rs.next()) {
                 String item = rs.getString("nome");
-                listaCount.add(item);
+                System.out.println(item);
+                 listaCount.add(item);
             }
             pstm.close();
 
         } catch (SQLException err) {
             System.out.println(err);
         }
-
+        System.out.println(listaCount.size());
         return listaCount.size();
     }
 
