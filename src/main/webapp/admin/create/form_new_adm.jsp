@@ -10,20 +10,23 @@
    
         <title>criar admin</title>
            <% 
+        ArrayList<Admin> lista=new ArrayList();
        Admin adm=(Admin)session.getAttribute("admin");
-       if(adm.getClasse().equals("master")==false){
+       if(adm==null){
        response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
         
                }
           AdminDAO control= new AdminDAO();
-          
-          ArrayList<Admin> lista=control.verAdmins();
+          try{
+           lista=control.verAdmins();
           
            for(int x=0; x<lista.size();x++){
             
            if(lista.get(x).getNickname().equals(adm.getNickname())){
                lista.remove(x);
                }
+               }}catch(Exception err){
+               
                }
           
       
