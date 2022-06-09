@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../css/style.css"/>
+        <link rel="stylesheet" href="../css/estilo.css"/>
         <title>painel de controle- Assistix;</title>
            <% 
   Admin adm=(Admin)session.getAttribute("admin");  
