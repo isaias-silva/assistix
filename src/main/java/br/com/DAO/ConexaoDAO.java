@@ -9,10 +9,10 @@ public class ConexaoDAO {
     private Connection conJDBC;
 
     public Connection ConexaoDAO() throws ClassNotFoundException {
-        String server = "anhanguera.cmi4gdq4rsw6.sa-east-1.rds.amazonaws.com";
+        String server = "";
         String banco = "assisflix";
-        String user = "admin";
-        String pass = "adminadmin";
+        String user = "";
+        String pass = "";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://" + server + ":3306/" + banco + "?user=" + user + "&password=" + pass + "";
