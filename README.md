@@ -3,7 +3,6 @@
 
 ## sobre a aplicação:
 <p>A aplicação é um guia de midia feito com java web, que conecta a um banco de dados mysql.</p>
-<p>o projeto finalizado pode ser visto <a href="https://assistix.herokuapp.com/">aqui</a>
 
 ## funcionalidades:
 <ul>
